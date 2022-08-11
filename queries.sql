@@ -16,3 +16,75 @@ SELECT * FROM animals WHERE neutered = TRUE;
  SELECT * FROM animals WHERE name <> 'Gabumons';
 /* Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg) */
  SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+
+ -- TRANSACTION FOR UPDATING SPECIES COLUMN WITH UNSPECIFIED and ROLLBACK
+
+BEGIN;
+
+UPDATE animals SET species = 'unspecified';
+
+SELECT * FROM animals; 
+
+ROLLBACK; 
+
+SELECT * FROM animals;
+
+--  TRANSACTION FOR UPDATING TO DIGIMON AND POKEMON WITH COMMIT
+
+BEGIN; 
+
+UPDATE animals SET species = 'digimon' WHERE NAME LIKE '%mon%';
+UPDATE ANIMALS SET SPECIES = 'pokemon' WHERE species IS NULL;
+
+COMMIT; 
+
+SELECT * FROM animals;
+
+-- TRANSACTION FOR DELETE ALL RECORDS
+
+BEGIN; 
+
+TRUNCATE TABLE animals; 
+
+SELECT * FROM animals; 
+
+ROLLBACK; 
+
+SELECT * FROM animals;
+
+-- SAVEPOINT TRANSACTIONS FOR UPDATE 
+
+BEGIN; 
+
+DELETE FROM animals WHERE date_of_birth > '2022-01-01'; 
+
+SAVEPOINT delete_after_jan; 
+
+UPDATE animals SET weight_kg = weight_kg *-1; 
+
+ROLLBACK TO delete_after_jan; 
+
+UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0; 
+
+COMMIT; 
+
+SELECT * FROM animals;
+
+-- QUERIES
+
+SELECT COUNT(*) FROM animals;
+
+SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT name, escape_attempts FROM animals 
+    WHERE escape_attempts = (
+    SELECT MAX(escape_attempts) FROM animals
+    );
+
+SELECT species, MIN(weight_kg) , MAX(weight_kg) FROM animals GROUP BY species;
+
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
+
