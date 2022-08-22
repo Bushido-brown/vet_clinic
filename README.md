@@ -1,23 +1,34 @@
-# curriculum-databases-projects-template
+# Vet-Clinic
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
+> The initial data structure for a vet clinic uses a PostgreSQL relational database. Create a table to store animals' information, some data inserted into it, and queries performed.
+> Update and delete records using transactions and GROUP BY to answer analytical questions.
+> Use primary & foreign keys mechanisms for joining tables. Query multiple tables. Add many to many relationships. Solve some performance issue.
+
+## Built With
+
+- PostgreSQL
 
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
 
-- Use [schema.sql](./schema.sql) to create all tables.
+- Use [schema.sql](./schema.sql) to create database and table.
 - Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database.
 
-## Authors
+## Author
 
-👤 **Author1**
+👤 **Tochukwu Orizu**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [Bushido-brown](https://github.com/Bushido-brown)
+- Twitter: [@tuzy](https://twitter.com/tuzy)
+- LinkedIn: [Tochukwu Orizu](https://linkedin.com/in/tochukwuorizu)
+
+👤 **Jesse Uzoma**
+
+- GitHub: [@Hedevdup](https://github.com/Hedevdup)
+- Twitter: [@Jesse](https://twitter.com/Jesse)
+- LinkedIn: [Jesse Uzoma](https://www.linkedin.com/in/jesseuzoma/)
 
 ## 🤝 Contributing
 
@@ -31,9 +42,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
+- W3Schools
+- Stack Overflow
 
 ## 📝 License
 
